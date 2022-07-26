@@ -30,7 +30,8 @@ function orderAlphabetically(array) {
 
 // Exercise 5: Order by year, ascending
 function orderByYear(array) {
-  const result = array.sort(function (a, b) {
+  let result = [...array];
+   result = result.sort(function (a, b) {
     if (a.year === b.year) {
       // Title sólo se mira si los años son iguales
       return a.title.localeCompare(b.tiltle);
@@ -52,7 +53,8 @@ function moviesAverageByCategory(array, genre) {
 
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes(array) {
-  const result = array.map(function (pelicula) {
+    let result = JSON.parse(JSON.stringify(array));
+    result = result.map(function (pelicula) {
     let duration = pelicula.duration + '';
     let durationArray = duration.split(/\s+/);
     let hours = (durationArray[0]) ? parseInt(durationArray[0])*60 : 0;
@@ -87,3 +89,32 @@ if (typeof module !== 'undefined') {
     bestFilmOfYear,
   };
 }
+
+// const arr = [
+//   {
+//     title: 'Paths of Glory',
+//     year: 1957,
+//     director: 'Stanley Kubrick',
+//     duration: '1h 28min',
+//     genre: ['Drama', 'War'],
+//     score: 8.4
+//   },
+//   {
+//     title: 'Pulp Fiction',
+//     year: 1994,
+//     director: 'Quentin Tarantino',
+//     duration: '2h 34min',
+//     genre: ['Crime', 'Drama'],
+//     score: 8.9
+//   },
+//   {
+//     title: 'Django Unchained',
+//     year: 2012,
+//     director: 'Quentin Tarantino',
+//     duration: '2h 45min',
+//     genre: ['Drama', 'Western'],
+//     score: 8.4
+//   }
+// ];
+// console.log(orderByYear(arr)).not.toBe(arr);
+// console.log(hoursToMinutes(movies)).not.toEqual(movies);
